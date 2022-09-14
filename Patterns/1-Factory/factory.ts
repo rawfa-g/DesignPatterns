@@ -15,20 +15,22 @@ import { House } from "./houses";
 export class HouseFactory {
   public buildHouse(params: { houseType: HouseTypeEnum }): House {
     const { houseType } = params;
-    if (houseType === HouseTypeEnum.CIUDAD) {
-      return this.buildCityHouse();
-    } else if (houseType === HouseTypeEnum.MONTAÑA) {
-      return this.buildMountainHouse();
-    } else if (houseType === HouseTypeEnum.PLAYA) {
-      return this.buildBeachHouse();
-    } else if (houseType === HouseTypeEnum.CAMPO) {
-      return this.buildFieldHouse();
-    }
+    let height: number = 10;
+    let width: number = 20;
+
+    if (houseType === HouseTypeEnum.CIUDAD)
+      return this.buildCityHouse(height, width);
+    if (houseType === HouseTypeEnum.MONTAÑA)
+      return this.buildMountainHouse(height, width);
+    if (houseType === HouseTypeEnum.PLAYA)
+      return this.buildBeachHouse(height, width);
+    if (houseType === HouseTypeEnum.CAMPO)
+      return this.buildFieldHouse(height, width);
 
     throw new Error(`The House type "${houseType}" is not implemented`);
   }
 
-  private buildCityHouse(): House {
+  private buildCityHouse(height, width): House {
     const house = new House();
 
     house.setFloor(new Floor(FloorTypeEnum.CERAMICA));
@@ -36,11 +38,12 @@ export class HouseFactory {
     house.setRoofs(new Roofs(RoofsTypeEnum.PLANAAJARDINADA));
     house.setFaçade(new Façade(FaçadeTypeEnum.PREFABRICADA));
     house.setWindows(new Windows(WindowsTypeEnum.PVC));
+    house.setArea(height, width);
 
     return house;
   }
 
-  private buildMountainHouse(): House {
+  private buildMountainHouse(height, width): House {
     const house = new House();
 
     house.setFloor(new Floor(FloorTypeEnum.PIEDRA));
@@ -48,11 +51,12 @@ export class HouseFactory {
     house.setRoofs(new Roofs(RoofsTypeEnum.PIZARRA));
     house.setFaçade(new Façade(FaçadeTypeEnum.SATE));
     house.setWindows(new Windows(WindowsTypeEnum.MADERA));
+    house.setArea(height, width);
 
     return house;
   }
 
-  private buildBeachHouse(): House {
+  private buildBeachHouse(height, width): House {
     const house = new House();
 
     house.setFloor(new Floor(FloorTypeEnum.CERAMICA));
@@ -60,11 +64,12 @@ export class HouseFactory {
     house.setRoofs(new Roofs(RoofsTypeEnum.PLANAAJARDINADA));
     house.setFaçade(new Façade(FaçadeTypeEnum.VENTILADA));
     house.setWindows(new Windows(WindowsTypeEnum.ALUMINIO));
+    house.setArea(height, width);
 
     return house;
   }
 
-  private buildFieldHouse(): House {
+  private buildFieldHouse(height, width): House {
     const house = new House();
 
     house.setFloor(new Floor(FloorTypeEnum.HORMIGON));
@@ -72,6 +77,7 @@ export class HouseFactory {
     house.setRoofs(new Roofs(RoofsTypeEnum.CHAPA));
     house.setFaçade(new Façade(FaçadeTypeEnum.TRADICIONAL));
     house.setWindows(new Windows(WindowsTypeEnum.MADERA));
+    house.setArea(height, width);
 
     return house;
   }

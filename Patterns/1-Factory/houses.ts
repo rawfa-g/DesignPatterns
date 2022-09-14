@@ -6,6 +6,8 @@ export class House {
   private roofs: Roofs;
   private façade: Façade;
   private windows: Windows;
+  private height: number;
+  private width: number;
 
   public setFloor(floor: Floor) {
     this.floor = floor;
@@ -25,5 +27,10 @@ export class House {
 
   public setWindows(windows: Windows) {
     this.windows = windows;
+  }
+
+  public setArea(height: number, width: number) {
+    let Area = height * width;
+    return Area;
   }
 }
