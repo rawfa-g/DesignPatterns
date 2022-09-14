@@ -1,4 +1,11 @@
-import { Floor, FloorTypeEnum, Walls, WallsTypeEnum } from "./house-parts";
+import {
+  Floor,
+  FloorTypeEnum,
+  Roofs,
+  RoofsTypeEnum,
+  Walls,
+  WallsTypeEnum,
+} from "./house-parts";
 import { House } from "./houses";
 
 export class HouseFactory {
@@ -16,6 +23,7 @@ export class HouseFactory {
 
     house.setFloor(new Floor(FloorTypeEnum.CERAMICA));
     house.setWalls(new Walls(WallsTypeEnum.PLADUR));
+    house.setRoofs(new Roofs(RoofsTypeEnum.PLANAAJARDINADA));
 
     return house;
   }

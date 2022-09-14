@@ -28,7 +28,20 @@ export enum WallsTypeEnum {
   MADERA = "Madera",
 }
 
-export class Roofs {}
+export class Roofs {
+  private type: RoofsTypeEnum;
+
+  constructor(type: RoofsTypeEnum) {
+    this.type = type;
+  }
+}
+
+export enum RoofsTypeEnum {
+  PLANAAJARDINADA = "Plana ajardinada",
+  TEJA = "Teja",
+  CHAPA = "Chapa",
+  PIZARRA = "Pizarra",
+}
 
 export class Façade {}
 
