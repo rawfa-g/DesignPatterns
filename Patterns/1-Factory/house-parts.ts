@@ -43,6 +43,19 @@ export enum RoofsTypeEnum {
   PIZARRA = "Pizarra",
 }
 
-export class Façade {}
+export class Façade {
+  private type: FaçadeTypeEnum;
+
+  constructor(type: FaçadeTypeEnum) {
+    this.type = type;
+  }
+}
+
+export enum FaçadeTypeEnum {
+  SATE = "SATE",
+  VENTILADA = "Ventilada",
+  TRADICIONAL = "Tradicional",
+  PREFABRICADA = "Prefabricada",
+}
 
 export class Windows {}

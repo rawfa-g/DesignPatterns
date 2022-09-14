@@ -1,4 +1,6 @@
 import {
+  Façade,
+  FaçadeTypeEnum,
   Floor,
   FloorTypeEnum,
   Roofs,
@@ -24,6 +26,7 @@ export class HouseFactory {
     house.setFloor(new Floor(FloorTypeEnum.CERAMICA));
     house.setWalls(new Walls(WallsTypeEnum.PLADUR));
     house.setRoofs(new Roofs(RoofsTypeEnum.PLANAAJARDINADA));
+    house.setFaçade(new Façade(FaçadeTypeEnum.PREFABRICADA));
 
     return house;
   }
