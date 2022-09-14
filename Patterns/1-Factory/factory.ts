@@ -7,6 +7,8 @@ import {
   RoofsTypeEnum,
   Walls,
   WallsTypeEnum,
+  Windows,
+  WindowsTypeEnum,
 } from "./house-parts";
 import { House } from "./houses";
 
@@ -27,6 +29,7 @@ export class HouseFactory {
     house.setWalls(new Walls(WallsTypeEnum.PLADUR));
     house.setRoofs(new Roofs(RoofsTypeEnum.PLANAAJARDINADA));
     house.setFaçade(new Façade(FaçadeTypeEnum.PREFABRICADA));
+    house.setWindows(new Windows(WindowsTypeEnum.PVC));
 
     return house;
   }

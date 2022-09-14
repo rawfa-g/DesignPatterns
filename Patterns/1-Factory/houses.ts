@@ -1,10 +1,11 @@
-import { Floor, Walls, Roofs, Façade } from "./house-parts";
+import { Floor, Walls, Roofs, Façade, Windows } from "./house-parts";
 
 export class House {
   private floor: Floor;
   private walls: Walls;
   private roofs: Roofs;
   private façade: Façade;
+  private windows: Windows;
 
   public setFloor(floor: Floor) {
     this.floor = floor;
@@ -20,5 +21,9 @@ export class House {
 
   public setFaçade(façade: Façade) {
     this.façade = façade;
+  }
+
+  public setWindows(windows: Windows) {
+    this.windows = windows;
   }
 }

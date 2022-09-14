@@ -58,4 +58,16 @@ export enum FaçadeTypeEnum {
   PREFABRICADA = "Prefabricada",
 }
 
-export class Windows {}
+export class Windows {
+  private type: WindowsTypeEnum;
+
+  constructor(type: WindowsTypeEnum) {
+    this.type = type;
+  }
+}
+
+export enum WindowsTypeEnum {
+  PVC = "PVC",
+  MADERA = "Madera",
+  ALUMINIO = "Alumino",
+}
