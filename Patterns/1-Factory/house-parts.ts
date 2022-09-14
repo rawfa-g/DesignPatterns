@@ -8,12 +8,25 @@ export class Floor {
 
 export enum FloorTypeEnum {
   CERAMICA = "Ceramica",
-  PARQUET = "Parquet",
+  MADERA = "Madera",
   HORMIGON = "Hormigon",
-  RESINAS = "Resinas",
+  PIEDRA = "Piedra",
+  VINILICO = "Vinilico",
 }
 
-export class Walls {}
+export class Walls {
+  private type: WallsTypeEnum;
+
+  constructor(type: WallsTypeEnum) {
+    this.type = type;
+  }
+}
+
+export enum WallsTypeEnum {
+  PLADUR = "Pladur",
+  LADRILLO = "Ladrillo",
+  MADERA = "Madera",
+}
 
 export class Roofs {}
 

@@ -1,10 +1,10 @@
-import { Floor, FloorTypeEnum } from "./house-parts";
+import { Floor, FloorTypeEnum, Walls, WallsTypeEnum } from "./house-parts";
 import { House } from "./houses";
 
 export class HouseFactory {
   public buildHouse(params: { houseType: HouseTypeEnum }): House {
     const { houseType } = params;
-    if (houseType === HouseTypeEnum.MODULAR) {
+    if (houseType === HouseTypeEnum.CIUDAD) {
       return this.buildModularHouse();
     }
 
@@ -15,14 +15,15 @@ export class HouseFactory {
     const house = new House();
 
     house.setFloor(new Floor(FloorTypeEnum.CERAMICA));
+    house.setWalls(new Walls(WallsTypeEnum.PLADUR));
 
     return house;
   }
 }
 
 enum HouseTypeEnum {
-  MODULAR = "Modular",
-  CONTAINERS = "Containers",
-  MADERA = "Madera",
-  MOVILES = "Moviles",
+  CIUDAD = "Ciudad",
+  MONTAÑA = "Montaña",
+  PLAYA = "Playa",
+  CAMPO = "Campo",
 }
