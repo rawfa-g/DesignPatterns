@@ -13,24 +13,28 @@ import {
 import { House } from "./houses";
 
 export class HouseFactory {
-  public buildHouse(params: { houseType: HouseTypeEnum }): House {
-    const { houseType } = params;
-    if (houseType === HouseTypeEnum.CIUDAD) {
-      return this.buildCityHouse();
-    } else if (houseType === HouseTypeEnum.MONTAÑA) {
-      return this.buildMountainHouse();
-    } else if (houseType === HouseTypeEnum.PLAYA) {
-      return this.buildBeachHouse();
-    } else if (houseType === HouseTypeEnum.CAMPO) {
-      return this.buildFieldHouse();
-    }
+  public buildHouse(params: {
+    houseType: HouseTypeEnum;
+    height: number;
+    width: number;
+  }): House {
+    const { houseType, height, width } = params;
+
+    const house = new House(height, width);
+
+    if (houseType === HouseTypeEnum.CIUDAD) return this.buildCityHouse(house);
+
+    if (houseType === HouseTypeEnum.MONTAÑA)
+      return this.buildMountainHouse(house);
+
+    if (houseType === HouseTypeEnum.PLAYA) return this.buildBeachHouse(house);
+
+    if (houseType === HouseTypeEnum.CAMPO) return this.buildFieldHouse(house);
 
     throw new Error(`The House type "${houseType}" is not implemented`);
   }
 
-  private buildCityHouse(): House {
-    const house = new House();
-
+  private buildCityHouse(house: House): House {
     house.setFloor(new Floor(FloorTypeEnum.CERAMICA));
     house.setWalls(new Walls(WallsTypeEnum.PLADUR));
     house.setRoofs(new Roofs(RoofsTypeEnum.PLANAAJARDINADA));
@@ -40,9 +44,7 @@ export class HouseFactory {
     return house;
   }
 
-  private buildMountainHouse(): House {
-    const house = new House();
-
+  private buildMountainHouse(house: House): House {
     house.setFloor(new Floor(FloorTypeEnum.PIEDRA));
     house.setWalls(new Walls(WallsTypeEnum.LADRILLO));
     house.setRoofs(new Roofs(RoofsTypeEnum.PIZARRA));
@@ -52,9 +54,7 @@ export class HouseFactory {
     return house;
   }
 
-  private buildBeachHouse(): House {
-    const house = new House();
-
+  private buildBeachHouse(house: House): House {
     house.setFloor(new Floor(FloorTypeEnum.CERAMICA));
     house.setWalls(new Walls(WallsTypeEnum.LADRILLO));
     house.setRoofs(new Roofs(RoofsTypeEnum.PLANAAJARDINADA));
@@ -64,9 +64,7 @@ export class HouseFactory {
     return house;
   }
 
-  private buildFieldHouse(): House {
-    const house = new House();
-
+  private buildFieldHouse(house: House): House {
     house.setFloor(new Floor(FloorTypeEnum.HORMIGON));
     house.setWalls(new Walls(WallsTypeEnum.PLADUR));
     house.setRoofs(new Roofs(RoofsTypeEnum.CHAPA));
@@ -77,7 +75,7 @@ export class HouseFactory {
   }
 }
 
-enum HouseTypeEnum {
+export enum HouseTypeEnum {
   CIUDAD = "Ciudad",
   MONTAÑA = "Montaña",
   PLAYA = "Playa",
