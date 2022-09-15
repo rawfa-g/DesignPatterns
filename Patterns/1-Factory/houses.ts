@@ -6,8 +6,13 @@ export class House {
   private roofs: Roofs;
   private façade: Façade;
   private windows: Windows;
-  private height: number;
-  private width: number;
+  readonly height: number;
+  readonly width: number;
+
+  constructor(height: number = 1, width: number = 1) {
+    this.height = height;
+    this.width = width;
+  }
 
   public setFloor(floor: Floor) {
     this.floor = floor;
@@ -29,8 +34,7 @@ export class House {
     this.windows = windows;
   }
 
-  public setArea(height: number, width: number) {
-    let Area = height * width;
-    return Area;
+  get getArea(): number {
+    return this.height * this.width;
   }
 }
