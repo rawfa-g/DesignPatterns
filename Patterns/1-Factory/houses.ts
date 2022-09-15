@@ -1,11 +1,11 @@
 import { Floor, Walls, Roofs, Façade, Windows } from "./house-parts";
 
 export class House {
-  private floor: Floor;
-  private walls: Walls;
-  private roofs: Roofs;
-  private façade: Façade;
-  private windows: Windows;
+  private floor!: Floor;
+  private walls!: Walls;
+  private roofs!: Roofs;
+  private façade!: Façade;
+  private windows!: Windows;
   readonly height: number;
   readonly width: number;
 

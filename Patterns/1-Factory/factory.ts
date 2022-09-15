@@ -75,7 +75,7 @@ export class HouseFactory {
   }
 }
 
-enum HouseTypeEnum {
+export enum HouseTypeEnum {
   CIUDAD = "Ciudad",
   MONTAÑA = "Montaña",
   PLAYA = "Playa",
