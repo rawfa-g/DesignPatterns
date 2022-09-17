@@ -2,9 +2,14 @@ export abstract class Factory<T> {
   abstract buildLowCost(): T;
   abstract buildStandard(): T;
   abstract buildPremmium(): T;
-  abstract isPremmium(): boolean;
+}
 
-  //private quality:QualityEnum
+export abstract class Product {
+  constructor(private quality: QualityEnum) {}
+
+  public isPremmium(): boolean {
+    return this.quality === QualityEnum.PREMMIUM;
+  }
 }
 
 export enum QualityEnum {
