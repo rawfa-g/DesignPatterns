@@ -3,11 +3,12 @@
 //1. nombre de la tarea
 //2. ¿Se ha completado?
 class ToDoItem {
-    constructor(task, isComplete) {
+    constructor(task, isCompleted) {
         this.task = task;
-        this.isComplete = isComplete;
+        this.isCompleted = isCompleted;
     }
 }
+10;
 //Administrador de las tareas
 //1-list de tareas
 //2-defina operacion a ejecutar con las tares... eliminar, agregar... modificar, etc
@@ -22,11 +23,46 @@ class TaskManager {
         this.tasks.push(newItem); //Añade el nuevo item al array;
     }
 }
+class HTMLHelper {
+    static createTaskItem(task) {
+        const listItem = document.createElement("li");
+        const checkBox = document.createElement("input");
+        const label = document.createElement("label");
+        checkBox.addEventListener("change", () => {
+            if (checkBox.checked) {
+                task.isCompleted = true;
+                displayTasks();
+            }
+        });
+        (checkBox.type = "checkbox"), (label.innerText = task.task);
+        listItem.appendChild(checkBox);
+        listItem.appendChild(label);
+        return listItem;
+    }
+}
 const taskInput = document.getElementById("new-task");
 const addButton = document.getElementById("add-task");
-const incompleteTasksHolder = document.getElementById("incomplete-tasks");
+const uncompletedTasksHolder = document.getElementById("incomplete-tasks");
 const completedTasksHolder = document.getElementById("completed-tasks");
 const taskManager = new TaskManager();
 addButton.addEventListener("click", () => {
-    console.log(taskInput.value);
+    taskManager.addTask(taskInput.value);
+    displayTasks();
+    clear();
 });
+function displayTasks() {
+    completedTasksHolder.innerHTML = "";
+    uncompletedTasksHolder.innerHTML = "";
+    taskManager.tasks.forEach((element) => {
+        var listItem = HTMLHelper.createTaskItem(element);
+        if (element.isCompleted) {
+            completedTasksHolder.appendChild(listItem);
+        }
+        else {
+            uncompletedTasksHolder.appendChild(listItem);
+        }
+    });
+}
+function clear() {
+    taskInput.value = "";
+}
