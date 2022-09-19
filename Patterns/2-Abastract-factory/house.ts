@@ -21,10 +21,10 @@ export class House extends Product {
 
   printIBI() {
     if (this.isPremmium()) {
-      console.log("10%");
+      console.log("Esta casa tiene un IBI del 10%");
       return;
     }
 
-    console.log("3%");
+    console.log("Esta casa tiene un IBI del 3%");
   }
 }

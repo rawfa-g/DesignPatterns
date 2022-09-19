@@ -1,17 +1,33 @@
-import { House } from "../1-Factory";
-import { Factory } from "./abstract-factory";
+import { Factory, Product, QualityEnum } from "./abstract-factory";
 
-export class Garden extends Factory<Garden> {
-  buildLowCost(): Garden {
-    throw new Error("Method not implemented.");
-  }
+export class GardenFactory extends Factory<Garden> {
   buildStandard(): Garden {
-    throw new Error("Method not implemented.");
+    return new Garden(QualityEnum.STANDARD);
   }
+
   buildPremmium(): Garden {
-    throw new Error("Method not implemented.");
+    return new Garden(QualityEnum.PREMMIUM);
   }
-  isPremmium(): boolean {
-    throw new Error("Method not implemented.");
+
+  buildLowCost(): Garden {
+    return new Garden(QualityEnum.LOW_COST);
+  }
+}
+
+export class Garden extends Product {
+  constructor(type: QualityEnum) {
+    super(type);
+  }
+
+  gardenType() {
+    if (this.isPremmium()) {
+      console.log("Tu jardín es de 100Ha");
+      return;
+    }
+    if (this.isStandard()) {
+      console.log("Tu jardín es de 1Ha");
+      return;
+    }
+    console.log("No tienes Jardín");
   }
 }

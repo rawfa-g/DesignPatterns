@@ -7,8 +7,14 @@ export abstract class Factory<T> {
 export abstract class Product {
   constructor(private quality: QualityEnum) {}
 
-  public isPremmium(): boolean {
+  protected isPremmium(): boolean {
     return this.quality === QualityEnum.PREMMIUM;
+  }
+  protected isStandard(): boolean {
+    return this.quality === QualityEnum.STANDARD;
+  }
+  protected isLowCost(): boolean {
+    return this.quality === QualityEnum.LOW_COST;
   }
 }
 
