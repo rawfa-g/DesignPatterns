@@ -1,28 +1,30 @@
-import { Factory, QualityEnum } from "./abstract-factory";
+import { Factory, Product, QualityEnum } from "./abstract-factory";
 
-export class House implements Factory<House> {
-  isPremmium(): boolean {
-    throw new Error("Method not implemented.");
-  }
-
+export class HouseFactory extends Factory<House> {
   buildStandard(): House {
-    throw new Error("Method not implemented.");
+    return new House(QualityEnum.STANDARD);
   }
 
   buildPremmium(): House {
-    throw new Error("Method not implemented.");
+    return new House(QualityEnum.PREMMIUM);
   }
 
   buildLowCost(): House {
-    throw new Error("Method not implemented.");
+    return new House(QualityEnum.LOW_COST);
   }
+}
 
-  private type: QualityEnum;
+export class House extends Product {
   constructor(type: QualityEnum) {
-    this.type = type;
+    super(type);
   }
 
-  if(isPremmium = true) {
-    return this.buildPremmium();
+  printIBI() {
+    if (this.isPremmium()) {
+      console.log("Esta casa tiene un IBI del 10%");
+      return;
+    }
+
+    console.log("Esta casa tiene un IBI del 3%");
   }
 }
