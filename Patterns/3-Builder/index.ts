@@ -11,7 +11,8 @@ const restaurantBuilder = new RestaurantBuilder();
 jefeDeObra.setBuilder(chaletBuilder);
 
 try {
-  jefeDeObra.buildPremiumHouse();
+  jefeDeObra.buildPremiumProperty();
+  console.log("Chalet construida");
 } catch (error: any) {
   console.log(error.message);
 } finally {
@@ -19,7 +20,8 @@ try {
 }
 
 try {
-  jefeDeObra.buildMinimalHouse;
+  jefeDeObra.buildBasicProperty();
+  console.log("Chalet construida");
 } catch (error: any) {
   console.log(error.message);
 } finally {
@@ -29,7 +31,8 @@ try {
 jefeDeObra.setBuilder(hotelBuilder);
 
 try {
-  jefeDeObra.buildStandardHouse;
+  jefeDeObra.buildStandardProperty();
+  console.log("Hotel construida");
 } catch (error: any) {
   console.log(error.message);
 } finally {

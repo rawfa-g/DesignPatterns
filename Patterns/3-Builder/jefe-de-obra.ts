@@ -7,18 +7,18 @@ export class JefeDeObra {
     this.constructionBuilder = constructionBuilder;
   }
 
-  public buildMinimalHouse(): void {
+  public buildBasicProperty(): void {
     this.constructionBuilder.buildHouse();
   }
 
-  public buildStandardHouse(): void {
-    this.buildMinimalHouse();
+  public buildStandardProperty(): void {
+    this.buildBasicProperty();
 
     this.constructionBuilder.buildGarden();
   }
 
-  public buildPremiumHouse(): void {
-    this.buildStandardHouse();
+  public buildPremiumProperty(): void {
+    this.buildStandardProperty();
 
     this.constructionBuilder.buildSwimmingPool();
   }
