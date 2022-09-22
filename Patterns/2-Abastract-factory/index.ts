@@ -28,4 +28,4 @@ garden2.gardenType();
 piscina1.poolType();
 piscina2.poolType();
 
-land1.gardenType();
+land1.landType();
