@@ -1,5 +1,5 @@
 export interface ConstructionBuilder {
-  buildHouse(): void;
+  buildInfraestructure(): void;
   buildGarden(): void;
   buildSwimmingPool(): void;
 }

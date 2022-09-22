@@ -18,7 +18,7 @@ export class RestaurantBuilder implements ConstructionBuilder {
     return result;
   }
 
-  public buildHouse(): void {
+  public buildInfraestructure(): void {
     this.land.setHouse(new HouseFactory().buildStandard());
   }
 

@@ -8,7 +8,7 @@ export class JefeDeObra {
   }
 
   public buildBasicProperty(): void {
-    this.constructionBuilder.buildHouse();
+    this.constructionBuilder.buildInfraestructure();
   }
 
   public buildStandardProperty(): void {

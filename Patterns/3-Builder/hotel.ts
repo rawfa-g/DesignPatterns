@@ -18,7 +18,7 @@ export class HotelBuilder implements ConstructionBuilder {
     return result;
   }
 
-  public buildHouse(): void {
+  public buildInfraestructure(): void {
     this.land.setHouse(new HouseFactory().buildPremmium());
   }
 
