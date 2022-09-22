@@ -21,9 +21,12 @@ export class Land extends Product {
   public house!: House;
   public swimmingPool!: SwimmingPool;
   public garden!: Garden;
+  readonly name: string = "Terrain #1";
 
-  constructor(type: QualityEnum) {
+  constructor(type: QualityEnum, name?: string) {
     super(type);
+
+    if (name) this.name = name;
   }
 
   landType() {

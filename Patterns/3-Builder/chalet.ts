@@ -7,7 +7,12 @@ import { ConstructionBuilder } from "./construction-builder";
 export class ChaletBuilder implements ConstructionBuilder {
   private land!: Land;
 
-  constructor() {
+  constructor(land?: Land) {
+    if (land) {
+      this.land = land;
+      return;
+    }
+
     this.reset();
   }
 
