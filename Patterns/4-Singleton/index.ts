@@ -1,24 +1,16 @@
-class JefeDeObra {
-  private static jefeDeObra: JefeDeObra;
+import { QualityEnum } from "../2-Abastract-factory/abstract-factory";
+import { BuildService } from "./build.service";
+import { Client } from "./client";
 
-  private constructor() {}
+const DonAlcantara = new Client();
 
-  public static getJefeDeObra(): JefeDeObra {
-    if (JefeDeObra.jefeDeObra == null) {
-      JefeDeObra.jefeDeObra = new JefeDeObra();
-    }
-    return JefeDeObra.jefeDeObra;
-  }
-}
+DonAlcantara.createLand(QualityEnum.LOW_COST);
+DonAlcantara.createLand(QualityEnum.PREMMIUM);
 
-function clientRequest() {
-  const encargo1 = JefeDeObra.getJefeDeObra();
-  const encargo2 = JefeDeObra.getJefeDeObra();
-  if (encargo1 === encargo2) {
-    console.log("Singleton works, both variables contain the same instance.");
-  } else {
-    console.log("Singleton failed, variables contain different instances.");
-  }
-}
+const buildService = BuildService.getService();
 
-clientRequest();
+buildService.buildChalet(DonAlcantara.getLand("Land #2"));
+
+//Aplicar buildService con restaurante, hotel, etc.
+//Añadir función num de tierras,
+// y por cada tierra, nombre y calidad y si está construida (tiene piscina y jardín, tiene jardín....)
